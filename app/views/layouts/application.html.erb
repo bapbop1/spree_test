@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spreeexample</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<script type='text/javascript' src='https://dev.monetrack.com/track.js'></script>
+<script>
+  var mtTracking = TrackM.get_old_sale('https://dev.monetrack.com/sys/sale_track');
+  var mtScript = document.createElement('script');
+  mtScript.src = mtTracking;
+  document.getElementsByTagName('head')[0].appendChild(mtScript);
+</script>
+
+</body>
+</html>
