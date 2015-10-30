@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
-
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.3.20'
 # spree e-commerce
 gem 'spree', '~> 3.0.4'
 # spree auth
@@ -42,6 +40,8 @@ group :development, :test do
 end
 
 group :development do
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '~> 0.3.20'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -49,3 +49,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
