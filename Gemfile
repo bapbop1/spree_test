@@ -5,8 +5,12 @@ ruby '2.2.0'
 gem 'rails', '4.2.4'
 # spree e-commerce
 gem 'spree', '~> 3.0.4'
+# httparty
+gem 'httparty', '~> 0.13.7'
 # spree auth
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
+# spree multi-currency
+gem 'spree_multi_currency', github: 'spree-contrib/spree_multi_currency', branch: '3-0-stable'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
