@@ -5,8 +5,14 @@ ruby '2.2.0'
 gem 'rails', '4.2.4'
 # spree e-commerce
 gem 'spree', '~> 3.0.4'
+gem 'carmen-rails', '~> 1.0.1'
 # httparty
 gem 'httparty', '~> 0.13.7'
+gem "capistrano"
+gem "capistrano3-puma"
+gem "capistrano-rails", require: false
+gem "capistrano-bundler", require: false
+gem "capistrano-rvm"
 # spree auth
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 # spree multi-currency
@@ -55,5 +61,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
+  # gem 'pg'
 end

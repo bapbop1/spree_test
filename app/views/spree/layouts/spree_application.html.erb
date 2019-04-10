@@ -23,14 +23,38 @@
         </div>
 
         <%= yield :templates %>
+        <script type='text/javascript'>
+          (function(d) {
+            var scriptTrack = document.createElement('script');
+            scriptTrack.src = 'http://localhost:3000/track.maximize.js';
+            scriptTrack.async = true;
+            document.getElementsByTagName('head')[0].appendChild(scriptTrack);
+          })(document);
+        </script>
+        <script>
 
-        <script type='text/javascript' src='https://dev.monetrack.com/track.js'></script>
-				<script>
-				  var mtTracking = TrackM.get_old_sale('https://dev.monetrack.com/sys/sale_track');
-				  var mtScript = document.createElement('script');
-				  mtScript.src = mtTracking;
-				  document.getElementsByTagName('head')[0].appendChild(mtScript);
-				</script>
+          $(document).ready(function(){
+            $('#new-customer #new_spree_user').on('submit', function(){
+              leadCommission();
+            });
+          })
+          function makeid()
+          {
+              var text = "";
+              var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+              for( var i=0; i < 12; i++ )
+                  text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+              return text;
+          }
+          function leadCommission(){
+            TrackM.setActionID('signup');
+            TrackM.setActionEmail("tesstpro1234@gmail.com");
+            TrackM.setOrderID(makeid());
+            TrackM.lead('http://localhost:3000');
+          }
+          </script>
         <%= yield :monetrack_script %>
       </div>
     </div>

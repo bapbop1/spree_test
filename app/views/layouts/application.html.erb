@@ -9,13 +9,13 @@
 <body>
 
 <%= yield %>
-<script type='text/javascript' src='https://dev.monetrack.com/track.js'></script>
+<script type='text/javascript' src='https://localhost:3000/track.maximize.js'></script>
 <script>
-  var mtTracking = TrackM.get_old_sale('https://dev.monetrack.com/sys/sale_track');
+  var mtTracking = TrackM.get_old_sale('https://localhost:3000/sys/sale_track');
   var mtScript = document.createElement('script');
   mtScript.src = mtTracking;
   document.getElementsByTagName('head')[0].appendChild(mtScript);
 </script>
-
+<%= session.inspect %>
 </body>
 </html>
